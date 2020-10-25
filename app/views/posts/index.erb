@@ -1,0 +1,4 @@
+<h1>All Books </h1>
+<% @books.each do |post| %>
+    <h4><a href="/books/<%= post.id %>"><%=post.title %></a></h4>
+<% end %>
