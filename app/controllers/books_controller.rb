@@ -7,15 +7,11 @@ class BooksController < ApplicationController
         #leverage the model to get all posts from our database
         @books = Book.all
         #render all posts
+        erb :"/books/index"
    end 
 
    # show route for a single post
    
-   post '/books/:id' do 
-      @book = Book.find_by(title: params[:title])
-         erb :"books/show"
-   end 
-#
    #CREATE
       #take you to the view of a form that creates the post
       get '/books/new' do
@@ -25,7 +21,7 @@ class BooksController < ApplicationController
             flash[:error] = "You must be logged in to log a new book."
             redirect "/"
       end 
-   end 
+   end  
 
       post '/books' do
          
@@ -42,12 +38,11 @@ class BooksController < ApplicationController
 
       end 
 
+   
+   #SHOW
       
-      
-  
-
-   get '/books/:id' do
-      @book = Books.find(params[:id])
+get '/books/:id' do
+      @book = Book.find(params[:id])
       erb :"/books/show"
    end 
 
@@ -63,7 +58,7 @@ class BooksController < ApplicationController
    end 
 end 
 
-   patch '/posts/:id' do
+   patch '/books/:id' do
       @post = Post.find(params[:id])
       @post.update(title: params[:title], author: params[:author],genre: params[:genre])
       redirect '/books/#{@book.id}'

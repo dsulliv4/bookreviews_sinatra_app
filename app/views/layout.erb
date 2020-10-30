@@ -31,10 +31,14 @@
     
     <div class="nav">
     <% if logged_in? %>
-    <a href="/"> All Posts </a>
-    <a href="/books/#{book.id}"> Create a Post </a>
+    <center><a href="/books"> All Posts </a>
+    <br>
+  
+    <a href="/books/new"> Create a Post </a>
+    <br>
     <a href="/logout">Log Out</a>
-    </div>
+    <br>
+    </div></center>
     <% end %>
 
 
