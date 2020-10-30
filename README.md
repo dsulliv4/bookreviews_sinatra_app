@@ -1,21 +1,21 @@
 <h1>Catalogue and review the books you read with this web app.</h1>
 
-<h3>
+<h4>
 Installation:
 <br>
-Fork and clone this repo.
+1.Fork and clone this repo.
 <br>
-Navigate to the app's root directory in your terminal.
+2.Navigate to the app's root directory in your terminal.
 <br>
-Inside the terminal, type bundle install, then rake db:migrate, then rake db:seed.
+3.Inside the terminal, type bundle install, then rake db:migrate, then rake db:seed.
 <br>
-Type shotgun in the terminal.
+3.Type shotgun in the terminal.
 <br>
-On a web browser, navigate to http://localhost:9393/.
+4.On a web browser, navigate to http://localhost:9393/.
 <br>
-Make an account, log in, then start reviewing books!
+5.Create an account, log in, then start reviewing books!
 <br>
-Check out CONTRIBUTING.md for the contributing guide.
+6.Check out CONTRIBUTING.md for the contributing guide.
 <br>
-Follow LICENSE.md for the software license.
-</h3>
+7. Follow LICENSE.md for the software license.
+</h4>
