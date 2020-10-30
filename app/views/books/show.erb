@@ -1,0 +1,18 @@
+<h3><%= @book.title %></h3>
+<img src="<%= @book.image_url %>" alt="<%= @book.title %>" height="200" width="200>"
+<br><br>
+<strong> Created at: <%= @book.created_at %></strong>
+<p><%= @book.description %></p>
+<p>By: <%= @book.user.name %></p>
+<% end %>
+
+<% if authorized_to_edit?(@post) %>
+
+<a href="/books/<%= @book.id %>/edit"> Edit Post< </a> 
+
+<form class="" action="/books/<%=@book.id %> method ="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" name="" value="Delete This Post">
+</form>
+
+<% end %>

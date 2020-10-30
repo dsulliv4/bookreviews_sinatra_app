@@ -3,19 +3,21 @@ class UsersController < ApplicationController
 get '/login' do
   erb :login
 end
+
+
 post '/login' do
-    #[x] recieve the input from login form
-    #[x] find the user
-    @user = User.find_by(email: params[:email])
+    user = User.find_by(email: params[:email])
     #authenticate the user
-    if @user && @user.authenticate(params[:password])
-      #[x] log them in - creating a session, adding a key/value pair to session hash
-      session[:user_id] = @user.id
-      # [] success messag
-      #[x] redirects to user profile
-      redirect "users/#{@user.id}"
+    if post.save
+      #log them in - creating a session, adding a key/value pair to session hash
+      session[:user_id] = user.id
+      #add a success message to the flash hash
+      flash[:message] ="Welcome back #{user.name}"
+      #redirects to user profile
+      redirect "users/#{user.id}"
     else
-      # [x] show an error
+    #show an error message
+    flash[:error] = "Your credentials were invalid: #{post.errors.full_messages.to_sentence}"
       #redirect to login form
       redirect '/login'
     end

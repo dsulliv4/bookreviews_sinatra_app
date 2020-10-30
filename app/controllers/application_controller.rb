@@ -7,6 +7,8 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "top_secret_session"
+    register Sinatra::Flash 
+  
   end
 
   get "/" do
@@ -26,6 +28,14 @@ class ApplicationController < Sinatra::Base
     def current_user
       User.find_by(id: session[:user_id])
     end
+
+#create an authorization helper or edit/delete
+#if the user from the post == current user
+
+def authorized_to_edit?(book)
+  book.user == current_user
+end 
+
 
   end
 
