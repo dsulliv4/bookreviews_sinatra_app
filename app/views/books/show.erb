@@ -1,12 +1,6 @@
-<h3><%= @book.title %></h3>
-<img src="<%= @book.image_url %>" alt="<%= @book.title %>" height="200" width="200>"
-<br><br>
-<strong> Created at: <%= @book.created_at %></strong>
-<p><%= @book.description %></p>
-<p>By: <%= @book.user.name %></p>
-<% end %>
 
-<% if authorized_to_edit?(@post) %>
+
+<% if authorized_to_edit?(@book) %>
 
 
 

@@ -41,10 +41,15 @@ class BooksController < ApplicationController
    
    #SHOW
       
-get '/books/:id' do
-      @book = Book.find(params[:id])
-      erb :"/books/show"
-   end 
+   get '/books/:id' do 
+      #make sure every controller action verifies if there's a user logged in 
+      if !logged_in?
+          redirect "/login"
+      else 
+          @book = Book.find_by_id(params[:id])
+          erb :"/books/show"
+      end 
+  end
 
 
    #UPDATE
