@@ -22,21 +22,24 @@ class ApplicationController < Sinatra::Base
   helpers do 
 
     def logged_in?
-      !!current_user
+      User.find(session[:user_id]) rescue nil
     end 
     
     def current_user
-      User.find_by(id: session[:user_id])
+      # find a the current user
+      @user ||= User.find_by(id: session[:user_id])
     end
 
 #create an authorization helper or edit/delete
-#if the user from the post == current user
+#if the user from the post == current usershotgun
 
 def authorized_to_edit?(book)
-  book.user == current_user
-end 
+  if !logged_in?
+    flash[:error] = "You are not authorized to edit this post."
+    redirect "/login" 
+  end 
+  end 
 
 
   end
-
 end 

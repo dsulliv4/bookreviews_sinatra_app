@@ -26,14 +26,14 @@ class BooksController < ApplicationController
       post '/books' do
          
          # receive the params that the user input in the create new post form
-       @book= Book.create(title: params[:title], author: params[:author], genre: params[:genre])
+       @book= Book.create(title: params[:title], author: params[:author], genre: params[:genre], review: params[:review])
         if @book.save
        # show post creation success message
          flash[:message] = "Created post successfully!"
-         redirect '/books/#{book.id}'
+         redirect "/books/#{@book.id}"
        else
          flash[:error] = "Please fill out all inputs before submitting."
-         redirect '/books/new'
+         redirect "/books/new"
        end
 
       end 
@@ -43,20 +43,19 @@ class BooksController < ApplicationController
       
    get '/books/:id' do 
       #make sure every controller action verifies if there's a user logged in 
-      if !logged_in?
-          redirect "/login"
-      else 
+   
           @book = Book.find_by_id(params[:id])
-          erb :"/books/show"
+          erb :'/books/show'
       end 
-  end
+  
 
 
    #UPDATE
    get '/books/:id/edit' do
       @book = Book.find(params[:id])
-       if authorized_to_edit?(@book)
-         erb :'/posts/edit'
+       #if authorized_to_edit?(@book)
+       if true 
+         erb :'/books/edit'
       else
          flash[:error] = "You are not authorized to modify this post."
          redirect "/books"
@@ -64,16 +63,17 @@ class BooksController < ApplicationController
 end 
 
    patch '/books/:id' do
-      @post = Post.find(params[:id])
-      @post.update(title: params[:title], author: params[:author],genre: params[:genre])
-      redirect '/books/#{@book.id}'
-   end 
+      @book = Book.find(params[:id])
+      if @book.update(title: params[:title], author: params[:author], genre: params[:genre], review: params[:review])
+      redirect "/books/#{@book.id}"
+      else 
+         flash[:error] = "Retry"
+      end 
+      end 
 
 
    #DELETE 
-   #create link to delete on post show page
-   #use Rack::MethodOvrride in config.ru
-   #delete route to delete our post
+
 
    delete '/books/:id' do 
       @book = Book.find(params[:id])

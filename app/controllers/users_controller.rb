@@ -8,7 +8,7 @@ end
 post '/login' do
     user = User.find_by(email: params[:email])
     #authenticate the user
-    if post.save
+    if user.save
       #log them in - creating a session, adding a key/value pair to session hash
       session[:user_id] = user.id
       #add a success message to the flash hash
@@ -17,7 +17,7 @@ post '/login' do
       redirect "users/#{user.id}"
     else
     #show an error message
-    flash[:error] = "Your credentials were invalid: #{post.errors.full_messages.to_sentence}"
+    flash[:error] = "Your credentials were invalid: #{user.errors.full_messages.to_sentence}"
       #redirect to login form
       redirect '/login'
     end

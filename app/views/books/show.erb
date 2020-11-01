@@ -1,6 +1,10 @@
 
+<h1><%= @book.title %></h1>
+<strong><%= @book.author %></strong>
+<p><%= @book.genre %></p>
+<p> <%= @book.review %></p>
 
-<% if authorized_to_edit?(@book) %>
+
 
 
 
@@ -11,5 +15,4 @@
   <input type="submit" name="" value="Delete This Post">
 </form>
 
-<% end %>
 
