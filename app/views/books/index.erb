@@ -1,4 +1,12 @@
 <h1>All Books </h1>
-<% @books.each do |book| %>
-    <h4><a href="/books/<%= book.id %>"><%=book.title %></a></h4>
+<br>
+<br>
+<ul>
+
+<% @books.each do |book| %></li></ol>
+  <li> <h4><a href="/books/<%= book.id %>"><%=book.title %></a></h4></li>
+    <br>
 <% end %>
+</ul>
+
+<img class="indexWomanReading" alt="woman reading" src ="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSr2Jece4KS-aPN1PrPRB0RdRdjTK7SU0A_yQ&usqp=CAU">

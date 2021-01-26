@@ -26,7 +26,7 @@ class BooksController < ApplicationController
       post '/books' do
          
          # receive the params that the user input in the create new post form
-       @book= Book.create(title: params[:title], author: params[:author], genre: params[:genre], review: params[:review])
+       @book= Book.new(title: params[:title], author: params[:author], genre: params[:genre], review: params[:review], image_url: params[:image_url], user_id: current_user.id)
         if @book.save
        # show post creation success message
          flash[:message] = "Created post successfully!"
@@ -54,7 +54,7 @@ class BooksController < ApplicationController
    get '/books/:id/edit' do
       @book = Book.find(params[:id])
        #if authorized_to_edit?(@book)
-       if true 
+       if @book.user_id == current_user.id
          erb :'/books/edit'
       else
          flash[:error] = "You are not authorized to modify this post."
@@ -64,10 +64,11 @@ end
 
    patch '/books/:id' do
       @book = Book.find(params[:id])
-      if @book.update(title: params[:title], author: params[:author], genre: params[:genre], review: params[:review])
+      if @book.update(title: params[:title], author: params[:author], genre: params[:genre], review: params[:review], image_url: params[:image_url])
       redirect "/books/#{@book.id}"
       else 
-         flash[:error] = "Retry"
+         flash[:error] = "Please fill out all required fields."
+         redirect "/books/#{@book.id}"
       end 
       end 
 
@@ -77,11 +78,15 @@ end
 
    delete '/books/:id' do 
       @book = Book.find(params[:id])
-      @book.destroy
-      redirect '/books'
+      if @book.user_id == current_user.id
+         @book.destroy
+         redirect "/books"
+     else 
+      flash[:error] = "You are not authorized to delete this post."
+         redirect "/books"
    end 
+end 
 
 
    
 end 
-

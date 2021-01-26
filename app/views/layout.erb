@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
     <title>BookreviewSinatraApp</title>
-
+ 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
@@ -24,29 +24,34 @@
   <% end %>
 
   <% if flash[:message] %>
-  <h3 style="color:green;"><%= flash[:message] %></h3>
+  <h3 style="color:black;"><%= flash[:message] %></h3>
   <% end %>
 
     
     
     <div class="nav">
     <% if logged_in? %>
+  
     <center><a href="/books"> All Posts </a>
     <br>
-  
+    <br>
     <a href="/books/new"> Create a Post </a>
+    <br>
     <br>
     <a href="/logout">Log Out</a>
     <br>
+    <br>
     </div></center>
     <% end %>
+    
+    <hr>
 
 
 
         <%= yield %>
 
       <footer class="branding">
-        <small>&copy; 2020 <strong>BookreviewSinatraApp</strong></small>
+        <small>&copy; 2020 <strong>GoodBooksSinatraApp</strong></small>
       </footer>
     </div>
 

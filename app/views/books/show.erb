@@ -1,14 +1,21 @@
 
-<h1><%= @book.title %></h1>
+<h1> <%= @book.title %></h1>
+<img src="<%= @book.image_url %>" alt="<%= @book.title %> photo" height="200" width="200"><br><br>
 <strong><%= @book.author %></strong>
-<p><%= @book.genre %></p>
-<p> <%= @book.review %></p>
+<br>
+<br>
+<p>Genre: <%= @book.genre %></p>
+<p>Review:  <%= @book.review %></p>
+
+
 
 
 
 
 
 <a href="/books/<%= @book.id %>/edit"> Edit Post </a> 
+<br>
+<br>
 
 <form class="" action="/books/<%= @book.id %>" method="post">
   <input type="hidden" name="_method" value="delete">

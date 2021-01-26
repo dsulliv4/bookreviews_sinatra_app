@@ -1,7 +1,7 @@
 @media screen {
   /* --- Reset Styles --- */
   * {
-    list-style: none;
+   
     margin: 0;
     padding: 0;
   }
@@ -13,9 +13,9 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
-    color: #333;
-    font-family: Sans-Serif;
+    background-image: url("https://cdn.shopify.com/s/files/1/1143/5434/products/OrangeCrush_pink_1de177ea-ca2e-4c1b-b5ba-0237a16e0a17_2048x.jpg?v=1588478515");
+    
+    font-family: Georgia, 'Times New Roman', Times, serif;
     line-height: 18px;
   }
 
@@ -112,4 +112,68 @@
     font-size: 18px;
     line-height: 24px;
   }
+
+  
+}
+
+.welcomeImage {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  height: 500px;
+  width: 500px;
+}
+
+.welcomeText {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.indexWomanReading {
+  float: right;
+  padding-right: 50px;
+  padding-bottom: 100px;
+  height: 300px;
+  width: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.loginWomanReading {
+  height: 400px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.createWomanReading {
+  display: inline-block;
+  padding-top: 50px;
+  padding-left: 200px;
+  height: 300px;
+  width: 300px;
+
+
+}
+
+.formtext {
+  font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+.formContainer {
+  display: inline-block;
+  padding-bottom: 50px;
+}
+
+.signUpImage {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  height: 500px;
+  width: 400px;
 }
